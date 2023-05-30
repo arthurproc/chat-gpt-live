@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styles from './chat.module.css';
-import { askToSilvio } from '../services/chatAPI';
+import styles from './SilvioChat.module.css';
+import { askToSilvio } from '../../services/chatAPI';
 
-function Chat() {
+function SilvioChat() {
   const [entrada, setEntrada] = useState('');
   const [resposta, setResposta] = useState('');
 
@@ -16,14 +16,14 @@ function Chat() {
   };
 
   return (
-    <>
+    <div className="container">
       <form onSubmit={ handleSubmit } className={ styles.formContainer }>
         <h1>Pergunte alguma coisa para o silvio:</h1>
         <textarea
           className={ styles.textInput }
           rows={ 5 }
           name="entrada"
-          placeholder="pergunta"
+          placeholder="Silvio, o que você acha de..."
           value={ entrada }
           onChange={ (event) => setEntrada(event.target.value) }
         />
@@ -37,8 +37,8 @@ function Chat() {
           </div>
         )
       }
-    </>
+    </div>
   );
 }
 
-export default Chat;
+export default SilvioChat;

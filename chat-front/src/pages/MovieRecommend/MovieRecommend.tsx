@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { searchMovies } from '../services/imdbAPI';
-import { recommentMovie } from '../services/chatAPI';
+import styles from './MovieRecommend.module.css';
+import { searchMovies } from '../../services/imdbAPI';
+import { recommentMovie } from '../../services/chatAPI';
 
-function MovieRecommendation() {
-  const [search, setSearch] = useState<string>('');
+function MovieRecommend() {
+  const [search, setSearch] = useState('');
   const [movies, setMovies] = useState<string[]>([]);
   const [queryResult, setQueryResult] = useState<string[]>([]);
   const [recommendation, setRecommendation] = useState<string[]>([]);
@@ -27,24 +28,26 @@ function MovieRecommendation() {
   };
 
   return (
-    <div>
-      <form onSubmit={ handleSubmit }>
+    <div className={ styles.container }>
+      <form onSubmit={ handleSubmit } className={ styles.form }>
         <input
           type="text"
           name="search"
           id="movie"
           value={ search }
           onChange={ (event) => setSearch(event.target.value) }
+          className={ styles.input }
         />
-        <button type="submit">Buscar</button>
+        <button type="submit" className={ styles.button }>Buscar</button>
       </form>
       <div>
-        <h2>Resultados da busca:</h2>
+        <h2 className={ styles.heading }>Resultados da busca:</h2>
         <select
           multiple
           name="movies"
           id="movies"
           onChange={ (event) => setMovies([...movies, event.target.value]) }
+          className={ styles.select }
         >
           {
             queryResult.map((movie: string) => (
@@ -54,7 +57,7 @@ function MovieRecommendation() {
         </select>
       </div>
       <div>
-        <h2>Filmes selecionados:</h2>
+        <h2 className={ styles.heading }>Filmes selecionados:</h2>
         <ul>
           {
             movies.map((movie: string) => (
@@ -63,11 +66,16 @@ function MovieRecommendation() {
           }
         </ul>
       </div>
-      <button onClick={ handleRecommend }>Recomendar filmes</button>
+      <button
+        onClick={ handleRecommend }
+        className={ styles.button }
+      >
+        Recomendar filmes
+      </button>
       {
         recommendation && (
           <div>
-            <h2>Recomendação:</h2>
+            <h2 className={ styles.heading }>Recomendação:</h2>
             <ul>
               {
                 recommendation.map((movie: string) => (
@@ -82,4 +90,4 @@ function MovieRecommendation() {
   );
 }
 
-export default MovieRecommendation;
+export default MovieRecommend;

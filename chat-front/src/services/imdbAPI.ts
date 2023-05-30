@@ -13,7 +13,7 @@
 //   "errorMessage": "string"
 // }
 
-const API_TOKEN = import.meta.env.VITE_API_KEY;
+const API_TOKEN = import.meta.env.VITE_IMDB_API_KEY;
 
 function extractTitles(response: any): string[] {
   const { results } = response;

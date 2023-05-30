@@ -1,14 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Chat from './components/Chat';
-import MovieRecommendation from './components/MovieRecommendation';
+import SilvioChat from './pages/Silvio/SilvioChat';
+import MovieRecommend from './pages/MovieRecommend/MovieRecommend';
+import Home from './pages/Home/Home';
 
 function App() {
   return (
     <div className="container">
       <Routes>
-        <Route path="/silvio" element={ <Chat /> } />
-        <Route path="/movie" element={ <MovieRecommendation /> } />
+        <Route index path="/" element={ <Home /> } />
+        <Route path="/silvio" element={ <SilvioChat /> } />
+        <Route path="/movie" element={ <MovieRecommend /> } />
       </Routes>
     </div>
   );

@@ -1,0 +1,41 @@
+.container {
+  background-color: #212121;
+  color: #fff;
+  padding: 20px;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.input {
+  background-color: #323232;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.button {
+  background-color: #546e7a;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #78909c;
+}
+
+.select {
+  background-color: #323232;
+  color: #fff;
+  width: 100%;
+  border: none;
+  margin-top: 10px;
+}
+
+.heading {
+  color: #b0bec5;
+}
